@@ -24,15 +24,16 @@ const MainCartPage = ({ cart }) => {
         <div className="container-fluid py-2">
             <div className="row d-flex justify-content-around">
                 <div className='col-lg-4 col-md-4 col-12 d-flex justify-content-center py-4'>
-                    <div className='card shadow p-4 text-center cart-count' style={{ height: "120px", width: "230px" }}>
+                    <div className='card shadow p-4 text-center cart-count' style={{ height: "160px", width: "230px" }}>
                         <h4 className=''>Total: {totalItems}</h4>
                         <h4>Price: {totalPrice}$</h4>
+                        <button className='btn btn-info btn-sm mt-2'>Checkout</button>
                     </div>
                 </div>
                 <div className='col-lg-7 col-md-8 col-12 cart-items-col'>
                     <div className='row pb-4'>
                         {cart.map((item) => (
-                            <div className='col-12 col-md-6 col-lg-6'>
+                            <div className='col-12 col-md-6 col-lg-4'>
                                 <ShowCartItems key={item.id} item={item} />
                             </div>
                         ))}
