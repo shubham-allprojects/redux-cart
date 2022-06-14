@@ -30,7 +30,7 @@ const MainCartPage = ({ cart }) => {
                         <button className='btn btn-info btn-sm mt-2'>Checkout</button>
                     </div>
                 </div>
-                <div className='col-lg-7 col-md-8 col-12 cart-items-col'>
+                <div className='col-lg-7 col-md-8 col-10 cart-items-col'>
                     <div className='row pb-4'>
                         {cart.map((item) => (
                             <div className='col-12 col-md-6 col-lg-4'>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux";
 import { adjustItemQty, removeFromCart } from "../1.Redux/actions/mainActions";
+import { AiFillDelete } from 'react-icons/ai'
 
 const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty);
@@ -20,10 +21,10 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
           <div>
             <label htmlFor="qty" className='h6'>Qty</label>
             <input className='mx-1 mb-2 p-lg-1' min="1" type="number" id="qty" name="qty" value={input} onChange={onChangeHandler} style={{ width: "50px", border: "1px solid blue", borderRadius: "8px" }} />
-            <button
+            <span
               onClick={() => removeFromCart(item.id)}
-              className="btn btn-danger btn-sm mx-lg-2 rounded rounded-pill"
-            >Remove Item</button>
+              className="mx-2" style={{cursor:"pointer"}}
+            ><AiFillDelete size={35} color='red' /></span>
           </div>
         </div>
       </div>
