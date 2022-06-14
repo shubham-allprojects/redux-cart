@@ -15,12 +15,12 @@ function App({ current }) {
           <Route path="/" element={<GetProducts />} />
 
           <Route path="/cart" element={<MainCartPage />} />
-          {!current ? (
+          {/* {!current ? (
             <Redirect to="/" />
           ) : (
             <Route exact path="/product/:id" element={<ViewSingleProduct />} />
-          )}
-
+          )} */}
+          <Route exact path="/product/:id" element={<ViewSingleProduct />} />
         </Routes>
       </BrowserRouter>
     </>

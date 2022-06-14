@@ -3,7 +3,7 @@ import ShowCartItems from './ShowCartItems'
 
 import { connect } from "react-redux";
 
-const MainCartPage = () => {
+const MainCartPage = ({ cart }) => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [totalItems, setTotalItems] = useState(0);
 
@@ -23,7 +23,7 @@ const MainCartPage = () => {
     return (<>
         <div>
             {cart.map((item) => (
-                <CartItem key={item.id} item={item} />
+                <ShowCartItems key={item.id} item={item} />
             ))}
         </div>
         <div>
