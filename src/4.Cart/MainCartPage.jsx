@@ -29,7 +29,7 @@ const MainCartPage = ({ cart }) => {
                         <h4>Price: {totalPrice}</h4>
                     </div>
                 </div>
-                <div className='col-lg-7 col-md-8 col-12'>
+                <div className='col-lg-7 col-md-8 col-12 cart-items-col'>
                     <div className='row pb-4'>
                         {cart.map((item) => (
                             <div className='col-12 col-md-6 col-lg-6'>
@@ -39,10 +39,6 @@ const MainCartPage = ({ cart }) => {
                     </div>
                 </div>
             </div>
-            {/* <div className='row bg-light d-flex justify-content-between'>
-               <div className='col-4 bg-success text-center'>wow</div>
-               <div className='col-6 bg-danger text-end'>wow2</div>
-            </div> */}
         </div>
     )
 }

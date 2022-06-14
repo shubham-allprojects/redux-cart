@@ -16,6 +16,16 @@
 
 @media only screen and (max-width:653px) and (min-width:280px) {
     .cart-count {
-        position: static !important;
+        position: fixed;
+        top: 80px;
+        z-index: 1;
+    }
+
+    .navbar {
+        z-index: 2;
+    }
+
+    .cart-items-col {
+        margin-top: 106px !important;
     }
 }
