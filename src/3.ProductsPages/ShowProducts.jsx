@@ -14,9 +14,9 @@ const ShowProducts = ({ product, addToCart, loadCurrentItem }) => {
                 <p className="card-text">{product.desc}</p>
                 <h4 className="card-title">{product.price}</h4>
                 <NavLink to={`/product/${product.id}`}>
-                    <button onClick={loadCurrentItem(product)} className='btn bnt-info'>View</button>
+                    <button onClick={() => { loadCurrentItem(product) }} className='btn bnt-info'>View</button>
                 </NavLink>
-                <button onClick={addToCart(product.id)} className='btn bnt-warning'>Add to Cart</button>
+                <button onClick={() => { addToCart(product.id) }} className='btn bnt-warning'>Add to Cart</button>
             </div>
         </div>
     )

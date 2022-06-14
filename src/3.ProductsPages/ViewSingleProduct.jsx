@@ -11,7 +11,7 @@ const ViewSingleProduct = ({ current, addToCart }) => {
                 <h3 className="card-title"></h3>
                 <p className="card-text">{current.desc}</p>
                 <h4 className="card-title">{current.price}</h4>
-                <button onClick={addToCart(current.id)} className='btn bnt-warning'>Add to Cart</button>
+                <button onClick={() => { addToCart(current.id) }} className='btn bnt-warning'>Add to Cart</button>
             </div>
         </div>
     )
