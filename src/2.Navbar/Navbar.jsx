@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { connect } from "react-redux";
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
+    const [cartCount, setCartCount] = useState(0);
+
+    useEffect(() => {
+        let count = 0;
+        cart.forEach((item) => {
+            count += item.qty;
+        });
+
+        setCartCount(count);
+    }, [cart, cartCount]);
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -12,13 +24,10 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="#">Home</a>
+                            <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Features</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Pricing</a>
+                            <NavLink to="/cart" className="nav-link">{cartCount}</NavLink>
                         </li>
                     </ul>
                 </div>
@@ -27,4 +36,10 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+    return {
+        cart: state.shop.cart,
+    };
+};
+
+export default connect(mapStateToProps)(Navbar)
