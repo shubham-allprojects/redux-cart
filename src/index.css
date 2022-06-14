@@ -1,0 +1,9 @@
+.cart-count {
+    position: fixed !important;
+}
+
+@media only screen and (max-width:653px) and (min-width:280px) {
+    .cart-count {
+        position: static !important;
+    }
+}
