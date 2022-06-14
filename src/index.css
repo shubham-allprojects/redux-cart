@@ -1,3 +1,15 @@
+.nav-item:hover {
+    background-color: purple !important;
+}
+
+.nav-item:hover .nav-link {
+    color: white !important;
+}
+
+.active {
+    color: red !important;
+}
+
 .cart-count {
     position: fixed !important;
 }

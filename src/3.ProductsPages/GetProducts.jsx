@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
 const GetProducts = ({ products }) => {
     return (
-        <div className='container py-2'>
+        <div className='container pb-4 '>
             <div className='row d-flex justify-content-center'>
                 {products.map((product) => (
                     <div className='col-12 col-md-6 col-lg-4'>

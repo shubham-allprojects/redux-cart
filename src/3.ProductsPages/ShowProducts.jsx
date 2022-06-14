@@ -7,7 +7,7 @@ import { loadCurrentItem, addToCart } from "../1.Redux/actions/mainActions"
 
 const ShowProducts = ({ product, addToCart, loadCurrentItem }) => {
     return (
-        <div className='card mt-4' style={{ height: "370px" }}>
+        <div className='card show-product-card mt-4' style={{ height: "370px" }}>
             <img className='card-img-top' src={product.img} alt={product.title} style={{ height: "200px" }} />
             <div className="card-body">
                 <h4 className="card-title">{product.title}</h4>
