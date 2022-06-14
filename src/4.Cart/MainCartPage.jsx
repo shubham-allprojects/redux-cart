@@ -20,17 +20,24 @@ const MainCartPage = ({ cart }) => {
 
     }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
-    return (<>
-        <div>
-            {cart.map((item) => (
-                <ShowCartItems key={item.id} item={item} />
-            ))}
+    return (
+        <div className="container py-2">
+            <div className="row">
+                <div className='col-lg-8'>
+                    <div className='row'>
+                        {cart.map((item) => (
+                            <div className='col-12 col-md-6 col-lg-6'>
+                                <ShowCartItems key={item.id} item={item} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className='col-lg-4'>
+                    <h4>Total: {totalItems}</h4>
+                    <h4>Price: {totalPrice}</h4>
+                </div>
+            </div>
         </div>
-        <div>
-            <h4>Total: {totalItems}</h4>
-            <h4>Price: {totalPrice}</h4>
-        </div>
-    </>
     )
 }
 

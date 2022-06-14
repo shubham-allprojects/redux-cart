@@ -7,16 +7,15 @@ import { loadCurrentItem, addToCart } from "../1.Redux/actions/mainActions"
 
 const ShowProducts = ({ product, addToCart, loadCurrentItem }) => {
     return (
-        <div className='card'>
-            <img className='card-img-top' src={product.img} alt={product.title} />
+        <div className='card mt-4' style={{ height: "370px" }}>
+            <img className='card-img-top' src={product.img} alt={product.title} style={{ height: "200px" }} />
             <div className="card-body">
-                <h3 className="card-title">{product.title}</h3>
-                <p className="card-text">{product.desc}</p>
-                <h4 className="card-title">{product.price}</h4>
+                <h4 className="card-title">{product.title}</h4>
+                <h5 className="card-title">Price: {product.price}$</h5>
                 <NavLink to={`/product/${product.id}`}>
-                    <button onClick={() => { loadCurrentItem(product) }} className='btn btn-info mx-2'>View</button>
+                    <button onClick={() => { loadCurrentItem(product) }} className='btn btn-info'>View</button>
                 </NavLink>
-                <button onClick={() => { addToCart(product.id) }} className='btn btn-warning'>Add to Cart</button>
+                <button onClick={() => { addToCart(product.id) }} className='btn btn-warning mx-2'>Add to Cart</button>
             </div>
         </div>
     )

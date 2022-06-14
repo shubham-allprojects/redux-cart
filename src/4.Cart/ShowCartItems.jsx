@@ -12,18 +12,19 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
 
   return (
     <div>
-      <div className='card'>
-        <img className='card-img-top' src={item.img} alt={item.title} />
+      <div className='card mt-2'>
+        <img className='card-img-top' src={item.img} alt={item.title} style={{ height: "180px" }} />
         <div className="card-body">
-          <h3 className="card-title">{item.title}</h3>
-          <p className="card-text">{item.desc}</p>
-          <h4 className="card-title">{item.price}</h4>
-          <label htmlFor="qty">Qty</label>
-          <input min="1" type="number" id="qty" name="qty" value={input} onChange={onChangeHandler} />
-          <button
-            onClick={() => removeFromCart(item.id)}
-            className="btn btn-danger"
-          >Remove</button>
+          <h5 className="card-title">{item.title}</h5>
+          <h4 className="card-title">Price: {item.price}</h4>
+          <div>
+            <label htmlFor="qty" className='h5'>Qty</label>
+            <input className='mx-1 mb-2 p-2' min="1" type="number" id="qty" name="qty" value={input} onChange={onChangeHandler} style={{ width: "50px", border: "1px solid blue", borderRadius: "8px" }} />
+            <button
+              onClick={() => removeFromCart(item.id)}
+              className="btn btn-danger mx-2 rounded rounded-pill"
+            >Remove Item</button>
+          </div>
         </div>
       </div>
     </div>
