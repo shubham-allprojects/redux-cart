@@ -26,7 +26,7 @@ const MainCartPage = ({ cart }) => {
                 <div className='col-lg-4 col-md-4 col-12 d-flex justify-content-center py-4'>
                     <div className='card shadow p-4 text-center cart-count' style={{ height: "120px", width: "230px" }}>
                         <h4 className=''>Total: {totalItems}</h4>
-                        <h4>Price: {totalPrice}</h4>
+                        <h4>Price: {totalPrice}$</h4>
                     </div>
                 </div>
                 <div className='col-lg-7 col-md-8 col-12 cart-items-col'>

@@ -10,7 +10,7 @@ const GetProducts = ({ products }) => {
         <div className='container pb-4 '>
             <div className='row d-flex justify-content-center'>
                 {products.map((product) => (
-                    <div className='col-12 col-md-6 col-lg-4'>
+                    <div className='col-12 col-md-6 col-lg-3'>
                         <ShowProducts key={product.id} product={product} />
                     </div>
                 ))}

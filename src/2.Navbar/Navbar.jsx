@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from "react-redux";
+import { RiShoppingCart2Fill } from 'react-icons/ri'
 
 const Navbar = ({ cart }) => {
     const [cartCount, setCartCount] = useState(0);
@@ -22,12 +23,12 @@ const Navbar = ({ cart }) => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+                            <NavLink className="nav-link mx-2" aria-current="page" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/cart" className="nav-link">{cartCount ? `Cart-${cartCount}` : "Cart-0"}</NavLink>
+                            <NavLink to="/cart" className="nav-link mx-2"><RiShoppingCart2Fill size={24} />{cartCount}</NavLink>
                         </li>
                     </ul>
                 </div>

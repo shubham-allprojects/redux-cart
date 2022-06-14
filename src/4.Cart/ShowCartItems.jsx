@@ -16,7 +16,7 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
         <img className='card-img-top' src={item.img} alt={item.title} style={{ height: "180px" }} />
         <div className="card-body">
           <h5 className="card-title">{item.title}</h5>
-          <h4 className="card-title">Price: {item.price}</h4>
+          <h4 className="card-title">Price: {item.price}$</h4>
           <div>
             <label htmlFor="qty" className='h5'>Qty</label>
             <input className='mx-1 mb-2 p-lg-2' min="1" type="number" id="qty" name="qty" value={input} onChange={onChangeHandler} style={{ width: "50px", border: "1px solid blue", borderRadius: "8px" }} />

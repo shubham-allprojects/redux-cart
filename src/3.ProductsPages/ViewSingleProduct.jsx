@@ -13,7 +13,7 @@ const ViewSingleProduct = ({ current, addToCart }) => {
                         <div className="card-body">
                             <h3 className="card-title">{current.title}</h3>
                             <p className="card-text">{current.desc}</p>
-                            <h4 className="card-title">Price: {current.price}</h4>
+                            <h4 className="card-title">Price: {current.price}$</h4>
                             <button onClick={() => { addToCart(current.id) }} className='btn btn-warning'>Add to Cart</button>
                         </div>
                     </div>
