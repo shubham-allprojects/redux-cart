@@ -16,7 +16,7 @@ const Navbar = ({ cart }) => {
     }, [cart, cartCount]);
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-white" style={{boxShadow:"0 0 2px 0"}}>
             <div className="container-fluid">
                 <span className="navbar-brand">Redux-Cart</span>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

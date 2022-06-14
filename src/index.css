@@ -33,4 +33,9 @@
     .cart-items-col {
         margin-top: 117px !important;
     }
+
+    .nav-item {
+        width: 70px !important;
+        padding: 5px !important;
+    }
 }

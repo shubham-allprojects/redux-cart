@@ -100,7 +100,7 @@ const INITIAL_STATE = {
 const shopReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case actionTypes.ADD_TO_CART:
-            // Great Item data from products array
+            // Get Item data from products array
             const item = state.products.find(
                 (product) => product.id === action.payload.id
             );

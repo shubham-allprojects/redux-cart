@@ -33,8 +33,8 @@ const MainCartPage = ({ cart }) => {
                 <div className='col-lg-7 col-md-8 col-10 cart-items-col'>
                     <div className='row pb-4'>
                         {cart.map((item) => (
-                            <div className='col-12 col-md-6 col-lg-4'>
-                                <ShowCartItems key={item.id} item={item} />
+                            <div className='col-12 col-md-6 col-lg-4' key={item.id}>
+                                <ShowCartItems item={item} />
                             </div>
                         ))}
                     </div>
