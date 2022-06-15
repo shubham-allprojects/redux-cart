@@ -93,7 +93,7 @@ const INITIAL_STATE = {
             rating: 5
         }
     ],
-    cart: [],
+    cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],
     currentItem: null,
 };
 
@@ -108,8 +108,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
             const inCart = state.cart.find((item) =>
                 item.id === action.payload.id ? true : false
             );
-
-            return {
+            const dataToReturn = {
                 ...state,
                 cart: inCart
                     ? state.cart.map((item) =>
@@ -117,22 +116,32 @@ const shopReducer = (state = INITIAL_STATE, action) => {
                             ? { ...item, qty: item.qty + 1 }
                             : item
                     )
-                    : [...state.cart, { ...item, qty: 1 }],
+                    : [...state.cart, { ...item, qty: 1 }]
             };
+            localStorage.setItem('cart', JSON.stringify(dataToReturn.cart))
+            return dataToReturn
+
         case actionTypes.REMOVE_FROM_CART:
-            return {
+            const itemsAfterRemoving = {
                 ...state,
                 cart: state.cart.filter((item) => item.id !== action.payload.id),
-            };
+            }
+            localStorage.setItem('cart', JSON.stringify(itemsAfterRemoving.cart))
+            return itemsAfterRemoving
+
         case actionTypes.ADJUST_ITEM_QTY:
-            return {
+            const adjustQty = {
                 ...state,
                 cart: state.cart.map((item) =>
                     item.id === action.payload.id
                         ? { ...item, qty: +action.payload.qty }
                         : item
                 ),
-            };
+            }
+
+            localStorage.setItem('cart', JSON.stringify(adjustQty.cart))
+            return adjustQty
+
         case actionTypes.LOAD_CURRENT_ITEM:
             return {
                 ...state,
