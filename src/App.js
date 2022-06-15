@@ -5,12 +5,14 @@ import ViewSingleProduct from './3.ProductsPages/ViewSingleProduct'
 import MainCartPage from './4.Cart/MainCartPage'
 
 import { connect } from "react-redux";
+import { ToastContainer } from 'react-toastify';
 
 function App({ current }) {
   return (
     <>
       <BrowserRouter>
         <Navbar />
+        <ToastContainer autoClose={1800} />
         <Routes>
           <Route path="/" element={<GetProducts />} />
 

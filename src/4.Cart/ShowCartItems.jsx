@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from "react-redux";
 import { adjustItemQty, removeFromCart } from "../1.Redux/actions/mainActions";
 import { AiFillDelete, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
+import { toast } from 'react-toastify';
 
 const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty);
@@ -45,7 +46,10 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
               <li><input onChange={onChangeHandler} id="quantity" className='form-control' type="text" value={input} style={{ width: "38px" }} readOnly></input></li>
               <li className="page-item"><a className="page-link" onClick={incrementQty}><AiOutlinePlus size={10} /></a></li>
               <span
-                onClick={() => removeFromCart(item.id)}
+                onClick={() => {
+                  removeFromCart(item.id)
+                  toast.info(`product ${item.title} removed from cart`)
+                }}
                 className="mx-2" style={{ cursor: "pointer" }}
               ><AiFillDelete size={35} color='red' /></span>
             </ul>
