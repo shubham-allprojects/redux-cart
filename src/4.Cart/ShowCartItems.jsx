@@ -11,7 +11,8 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
     item.qty += 1
     setInput(item.qty)
     adjustQty(item.id, item.qty)
-    if (item.qty >= 5) {
+    if (item.qty > 5) {
+      toast.warn("max quantity is 5 for this product")
       setInput(5)
       adjustQty(item.id, 5)
     }
