@@ -36,7 +36,7 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
 
   return (
     <div>
-      <div className='card cart-cards mt-5 shadow' style={{ height: "330px" }}>
+      <div className='card cart-cards mt-4 shadow' style={{ height: "330px" }}>
         <img className='card-img-top' src={item.img} alt={item.title} style={{ height: "170px" }} />
         <div className="card-body">
           <h5 className="card-title">{item.title}</h5>
@@ -51,7 +51,7 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
                   removeFromCart(item.id)
                   toast.info(`product ${item.title} removed from cart`)
                 }}
-                className="mx-2" style={{ cursor: "pointer" }}
+                className="mx-4" style={{ cursor: "pointer" }}
               ><AiFillDelete size={35} color='red' /></span>
             </ul>
           </div>
