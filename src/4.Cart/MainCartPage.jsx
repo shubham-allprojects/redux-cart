@@ -37,7 +37,7 @@ const MainCartPage = ({ cart }) => {
                             <div className='col-12 col-md-6 col-lg-4' key={item.id}>
                                 <ShowCartItems item={item} />
                             </div>
-                        )) : <div className='col-12 p-5'><h2 className='text-center'>Cart is empty <MdOutlineRemoveShoppingCart size={40} /></h2><h2 className='text-center text-muted'>Add some items in your cart</h2></div>}
+                        )) : <div className='col-12 p-5 mt-4'><h2 className='text-center'>Cart is empty <MdOutlineRemoveShoppingCart size={40} /></h2><h2 className='text-center text-muted'>Add some items in your cart</h2></div>}
                     </div>
                 </div>
             </div>
