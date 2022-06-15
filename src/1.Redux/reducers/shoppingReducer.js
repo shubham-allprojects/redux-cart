@@ -94,7 +94,7 @@ const INITIAL_STATE = {
         }
     ],
     cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],
-    currentItem: null,
+    currentItem: localStorage.getItem('currentItem') ? JSON.parse(localStorage.getItem('currentItem')) : null,
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -143,10 +143,13 @@ const shopReducer = (state = INITIAL_STATE, action) => {
             return adjustQty
 
         case actionTypes.LOAD_CURRENT_ITEM:
-            return {
+            const currentItem = {
                 ...state,
                 currentItem: action.payload,
-            };
+            }
+            localStorage.setItem('currentItem', JSON.stringify(currentItem.currentItem))
+            return currentItem
+
         default:
             return state;
     }
