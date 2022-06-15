@@ -16,7 +16,7 @@ const Navbar = ({ cart }) => {
     }, [cart, cartCount]);
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-white" style={{boxShadow:"0 0 2px 0"}}>
+        <nav className="navbar navbar-expand-lg navbar-light bg-white" style={{ boxShadow: "0 0 2px 0" }}>
             <div className="container-fluid">
                 <span className="navbar-brand">Redux-Cart</span>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,11 +24,11 @@ const Navbar = ({ cart }) => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
-                        <li className="nav-item">
-                            <NavLink className="nav-link mx-2" aria-current="page" to="/">Home</NavLink>
+                        <li className="nav-item mx-2">
+                            <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink to="/cart" className="nav-link mx-2"><RiShoppingCart2Fill size={24} />{cartCount}</NavLink>
+                        <li className="nav-item mx-2">
+                            <NavLink to="/cart" className="nav-link"><RiShoppingCart2Fill size={24} />{cartCount}</NavLink>
                         </li>
                     </ul>
                 </div>

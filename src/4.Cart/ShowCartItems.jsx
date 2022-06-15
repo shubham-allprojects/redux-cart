@@ -49,8 +49,6 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
                 className="mx-2" style={{ cursor: "pointer" }}
               ><AiFillDelete size={35} color='red' /></span>
             </ul>
-            {/* <input className='mx-1 mb-2 p-lg-1' min="1" type="number" id="qty" name="qty" value={input} onChange={onChangeHandler} style={{ width: "50px", border: "1px solid blue", borderRadius: "8px" }} /> */}
-
           </div>
         </div>
       </div>
