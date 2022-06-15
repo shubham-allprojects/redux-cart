@@ -11,12 +11,21 @@
     color: red !important;
 }
 
-.show-product-card:hover {
+.show-product-card:hover, .cart-cards:hover {
     transform: scale(1.1);
 }
 
 .cart-count {
     position: fixed !important;
+}
+
+.page-item:hover {
+    cursor: pointer;
+}
+
+.page-link:hover {
+    background-color: orange !important;
+    color: black !important;
 }
 
 @media only screen and (max-width:653px) and (min-width:280px) {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux";
 import { adjustItemQty, removeFromCart } from "../1.Redux/actions/mainActions";
-import { AiFillDelete } from 'react-icons/ai'
+import { AiFillDelete, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
 const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty);
@@ -34,16 +34,16 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
 
   return (
     <div>
-      <div className='card mt-md-4 mt-5 shadow' style={{ height: "330px" }}>
+      <div className='card cart-cards mt-5 shadow' style={{ height: "330px" }}>
         <img className='card-img-top' src={item.img} alt={item.title} style={{ height: "170px" }} />
         <div className="card-body">
           <h5 className="card-title">{item.title}</h5>
           <h5 className="card-title">Price: {item.price}$</h5>
           <div>
-            <ul className="pagination " id='qty'>
-              <li className="page-item"><a className="page-link" onClick={decrementQty}>-</a></li>
-              <li className="page-item"><input onChange={onChangeHandler} id="quantity" className='form-control' type="text" value={input} style={{ width: "35px" }}></input></li>
-              <li className="page-item"><a className="page-link" onClick={incrementQty}>+</a></li>
+            <ul className="pagination" id='qty'>
+              <li className="page-item"><a className="page-link" onClick={decrementQty}><AiOutlineMinus size={10} /></a></li>
+              <li><input onChange={onChangeHandler} id="quantity" className='form-control' type="text" value={input} style={{ width: "38px" }} readOnly></input></li>
+              <li className="page-item"><a className="page-link" onClick={incrementQty}><AiOutlinePlus size={10} /></a></li>
               <span
                 onClick={() => removeFromCart(item.id)}
                 className="mx-2" style={{ cursor: "pointer" }}
