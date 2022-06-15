@@ -6,6 +6,27 @@ import { AiFillDelete } from 'react-icons/ai'
 const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty);
 
+  const incrementQty = () => {
+    item.qty += 1
+    setInput(item.qty)
+    adjustQty(item.id, item.qty)
+    if (item.qty >= 5) {
+      setInput(5)
+      adjustQty(item.id, 5)
+    }
+  }
+
+  const decrementQty = () => {
+    item.qty -= 1
+    setInput(item.qty)
+    adjustQty(item.id, item.qty)
+    if (item.qty <= 1) {
+      setInput(1)
+      adjustQty(item.id, 1)
+    }
+  }
+
+
   const onChangeHandler = (e) => {
     setInput(e.target.value);
     adjustQty(item.id, e.target.value);
@@ -19,12 +40,17 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
           <h5 className="card-title">{item.title}</h5>
           <h5 className="card-title">Price: {item.price}$</h5>
           <div>
-            <label htmlFor="qty" className='h6'>Qty</label>
-            <input className='mx-1 mb-2 p-lg-1' min="1" type="number" id="qty" name="qty" value={input} onChange={onChangeHandler} style={{ width: "50px", border: "1px solid blue", borderRadius: "8px" }} />
-            <span
-              onClick={() => removeFromCart(item.id)}
-              className="mx-2" style={{cursor:"pointer"}}
-            ><AiFillDelete size={35} color='red' /></span>
+            <ul className="pagination " id='qty'>
+              <li className="page-item"><a className="page-link" onClick={decrementQty}>-</a></li>
+              <li className="page-item"><input onChange={onChangeHandler} id="quantity" className='form-control' type="text" value={input} style={{ width: "35px" }}></input></li>
+              <li className="page-item"><a className="page-link" onClick={incrementQty}>+</a></li>
+              <span
+                onClick={() => removeFromCart(item.id)}
+                className="mx-2" style={{ cursor: "pointer" }}
+              ><AiFillDelete size={35} color='red' /></span>
+            </ul>
+            {/* <input className='mx-1 mb-2 p-lg-1' min="1" type="number" id="qty" name="qty" value={input} onChange={onChangeHandler} style={{ width: "50px", border: "1px solid blue", borderRadius: "8px" }} /> */}
+
           </div>
         </div>
       </div>
