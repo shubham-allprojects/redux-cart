@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'react-toastify/dist/ReactToastify.css';
 
+//Redux
 import store from './1.Redux/store/store';
 import { Provider } from 'react-redux';
 

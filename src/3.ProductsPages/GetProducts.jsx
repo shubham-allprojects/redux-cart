@@ -1,5 +1,6 @@
 import React from 'react'
 import ShowProducts from './ShowProducts';
+
 // Redux
 import { connect } from "react-redux";
 

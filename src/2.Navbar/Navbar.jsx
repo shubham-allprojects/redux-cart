@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { RiShoppingCart2Fill } from 'react-icons/ri'
 
 const Navbar = ({ cart }) => {
+
     const [cartCount, setCartCount] = useState(0);
 
     useEffect(() => {
