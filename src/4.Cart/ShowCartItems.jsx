@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { adjustItemQty, removeFromCart } from "../1.Redux/actions/mainActions";
 import { AiFillDelete, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { toast } from "react-toastify";
+import { confirmAlert } from "react-confirm-alert"; // Import
 
 const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty);
@@ -23,14 +24,35 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
     setInput(item.qty);
     adjustQty(item.id, item.qty);
     if (item.qty < 1) {
-      removeFromCart(item.id);
-      toast.info(`product ${item.title} removed from cart`);
+      setInput(1);
+      adjustQty(item.id, 1);
+      confirmDelete();
     }
   };
 
   const onChangeHandler = (e) => {
     setInput(e.target.value);
     adjustQty(item.id, e.target.value);
+  };
+
+  const confirmDelete = () => {
+    confirmAlert({
+      title: "Confirm to remove item",
+      message: "Are you sure to remove product ?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            removeFromCart(item.id);
+            toast.info(`product ${item.title} removed from cart`);
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {},
+        },
+      ],
+    });
   };
 
   return (
@@ -69,10 +91,11 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
                 </a>
               </li>
               <span
-                onClick={() => {
-                  removeFromCart(item.id);
-                  toast.info(`product ${item.title} removed from cart`);
-                }}
+                // onClick={() => {
+                //   removeFromCart(item.id);
+                //   toast.info(`product ${item.title} removed from cart`);
+                // }}
+                onClick={confirmDelete}
                 className="mx-4"
                 style={{ cursor: "pointer" }}
               >
