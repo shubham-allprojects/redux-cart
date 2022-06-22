@@ -91,10 +91,6 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
                 </a>
               </li>
               <span
-                // onClick={() => {
-                //   removeFromCart(item.id);
-                //   toast.info(`product ${item.title} removed from cart`);
-                // }}
                 onClick={confirmDelete}
                 className="mx-4"
                 style={{ cursor: "pointer" }}
