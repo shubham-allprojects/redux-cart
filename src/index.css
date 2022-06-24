@@ -26,17 +26,6 @@
 
 
 /* Cart styles */
-.cart-count {
-    position: fixed !important;
-    transition: 0.5s ease-in-out;
-}
-
-.cart-count:hover {
-    background: rgba(0, 0, 0, 0.823) !important;
-    color: white !important;
-    transition: 0.5s ease-in-out;
-}
-
 .page-item:hover {
     cursor: pointer;
 }
@@ -45,7 +34,6 @@
     background-color: orange !important;
     color: black !important;
 }
-
 
 /* Scroll to top button */
 .scrollToTop {
@@ -61,19 +49,15 @@
 
 /* Media query for mobile screen */
 @media only screen and (max-width:653px) and (min-width:280px) {
-    .cart-count {
-        position: fixed;
-        top: 80px;
-        z-index: 1;
-    }
 
     .navbar {
         z-index: 2;
     }
 
-    .cart-items-col {
-        margin-top: 117px !important;
+    .cart-table {
+        overflow-x: scroll !important;
     }
+
 
     .nav-item {
         width: 70px !important;

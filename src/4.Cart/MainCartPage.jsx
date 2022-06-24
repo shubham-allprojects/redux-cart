@@ -20,36 +20,41 @@ const MainCartPage = ({ cart }) => {
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
   return (
-    <div className="container-fluid">
-      <div className="row d-flex justify-content-around">
-        <div className="col-lg-3 col-md-3 col-12 d-flex justify-content-center mt-5 mb-4 mb-md-0">
-          <div
-            className="card shadow p-4 text-start cart-count"
-            style={{ height: "160px", width: "200px" }}
-          >
-            <p>Items: {totalItems}</p>
-            <p>Price: {totalPrice}$</p>
-            <button className="btn btn-info btn-sm mt-2">Checkout</button>
+    <div className="container-fluid py-5">
+      <div className="container">
+        <div className="row">
+          <div className="col cart-table">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Quantity</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cart.map((item, Index) => {
+                  return <ShowCartItems item={item} Index={Index} />;
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
-        <div className="col-lg-8 col-md-8 col-10 cart-items-col mt-md-4">
-          <div className="row pb-5 d-flex justify-content-center">
-            {cart.length >= 1 ? (
-              cart.map((item) => (
-                <div className="col-12 col-md-6 col-lg-4" key={item.id}>
-                  <ShowCartItems item={item} />
-                </div>
-              ))
-            ) : (
-              <div className="col-12 p-5 mt-4">
-                <h2 className="text-center">
-                  Cart is empty <MdOutlineRemoveShoppingCart size={40} />
-                </h2>
-                <h2 className="text-center text-muted">
-                  Add some items in your cart
-                </h2>
-              </div>
-            )}
+        <div className="row py-2 justify-content-center">
+          <div className="col-12 text-end">
+            <div className="badge badge-pill bg-primary py-2 px-5 fs-3">
+              Total items: {totalItems}
+            </div>
+            <br />
+            <div className="badge badge-pill bg-warning py-2 px-5 my-2 text-dark fs-3">
+              Price: {totalPrice}$
+            </div>
+            <br />
+            <button className="btn btn-outline-info text-dark mt-2">
+              Proceed to checkout
+            </button>
           </div>
         </div>
       </div>

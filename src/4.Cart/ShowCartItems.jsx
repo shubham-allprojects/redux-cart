@@ -5,7 +5,7 @@ import { AiFillDelete, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert"; // Import
 
-const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
+const ShowCartItems = ({ item, adjustQty, removeFromCart, Index }) => {
   const [input, setInput] = useState(item.qty);
 
   const incrementQty = () => {
@@ -56,52 +56,49 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart }) => {
   };
 
   return (
-    <div>
-      <div className="card cart-cards mt-4 shadow" style={{ height: "330px" }}>
+    <tr>
+      <td>{Index + 1}</td>
+      <td>
         <img
-          className="card-img-top"
+          className="cart-img"
           src={item.img}
           alt={item.title}
-          style={{ height: "170px" }}
+          style={{ height: "100px", width: "100px" }}
         />
-        <div className="card-body">
-          <h5 className="card-title">{item.title}</h5>
-          <h5 className="card-title">Price: {item.price}$</h5>
-          <div>
-            <ul className="pagination" id="qty">
-              <li className="page-item">
-                <a className="page-link" onClick={decrementQty}>
-                  <AiOutlineMinus size={10} />
-                </a>
-              </li>
-              <li>
-                <input
-                  onChange={onChangeHandler}
-                  id="quantity"
-                  className="form-control"
-                  type="text"
-                  value={input}
-                  style={{ width: "38px" }}
-                  readOnly
-                ></input>
-              </li>
-              <li className="page-item">
-                <a className="page-link" onClick={incrementQty}>
-                  <AiOutlinePlus size={10} />
-                </a>
-              </li>
-              <span
-                onClick={confirmDelete}
-                className="mx-4"
-                style={{ cursor: "pointer" }}
-              >
-                <AiFillDelete size={35} color="red" />
-              </span>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+      </td>
+      <td>{item.title}</td>
+      <td>
+        <ul className="pagination" id="qty">
+          <li className="page-item">
+            <a className="page-link" onClick={decrementQty}>
+              <AiOutlineMinus size={10} />
+            </a>
+          </li>
+          <li>
+            <input
+              onChange={onChangeHandler}
+              id="quantity"
+              className="form-control"
+              type="text"
+              value={input}
+              style={{ width: "38px" }}
+              readOnly
+            ></input>
+          </li>
+          <li className="page-item">
+            <a className="page-link" onClick={incrementQty}>
+              <AiOutlinePlus size={10} />
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        {" "}
+        <span onClick={confirmDelete} style={{ cursor: "pointer" }}>
+          <AiFillDelete size={35} color="red" />
+        </span>
+      </td>
+    </tr>
   );
 };
 
