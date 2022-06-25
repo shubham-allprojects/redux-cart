@@ -19,6 +19,27 @@ const MainCartPage = ({ cart }) => {
     setTotalPrice(price);
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
+  {
+    if (cart.length < 1) {
+      return (
+        <div className="cotainer-fluid my-5">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h1 className="text-center">
+                  You cart is empty <MdOutlineRemoveShoppingCart />
+                </h1>
+                <h3 className="text-muted text-center">
+                  Please add some items !
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+
   return (
     <div className="container-fluid py-5">
       <div className="container">
@@ -31,6 +52,7 @@ const MainCartPage = ({ cart }) => {
                   <th>Image</th>
                   <th>Title</th>
                   <th>Quantity</th>
+                  <th>Price</th>
                   <th>Action</th>
                 </tr>
               </thead>

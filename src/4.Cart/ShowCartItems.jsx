@@ -37,7 +37,7 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart, Index }) => {
 
   const confirmDelete = () => {
     confirmAlert({
-      title: "Confirm to remove item",
+      title: "Confirm action",
       message: "Are you sure to remove product ?",
       buttons: [
         {
@@ -92,8 +92,8 @@ const ShowCartItems = ({ item, adjustQty, removeFromCart, Index }) => {
           </li>
         </ul>
       </td>
+      <td>{item.price*item.qty}$</td>
       <td>
-        {" "}
         <span onClick={confirmDelete} style={{ cursor: "pointer" }}>
           <AiFillDelete size={35} color="red" />
         </span>
